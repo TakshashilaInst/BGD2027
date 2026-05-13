@@ -327,12 +327,13 @@ section {
 }
 
 .about-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: nowrap;
   gap: 2rem;
   margin-top: 3rem;
   padding-top: 3rem;
   border-top: 1px solid var(--border-subtle);
+  justify-content: space-between;
 }
 
 .stat-number {
@@ -348,6 +349,12 @@ section {
   color: var(--body-text);
   margin-top: 0.5rem;
   letter-spacing: 0.04em;
+}
+
+.about-stats > * {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
 }
 
 /* ===================== THEMES ===================== */
@@ -773,7 +780,7 @@ section {
   .nav-hamburger { display: block; }
 
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .about-stats { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .about-stats { display: flex; flex-wrap: nowrap; gap: 1rem; }
   .themes-grid .theme-card { width: calc(50% - 1rem); min-width: auto; }
   .formats-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
@@ -792,7 +799,9 @@ section {
 @media (max-width: 600px) {
   section { padding: 4rem 1.5rem; }
   .site-nav { padding: 1rem 1.5rem; }
-  .about-stats { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .about-stats { display: flex; flex-wrap: nowrap; gap: 0.75rem; }
+  .stat-number { font-size: 1.6rem; }
+  .stat-label { font-size: 0.7rem; }
   .stat-number { font-size: 2rem; }
   .themes-grid .theme-card { width: 100%; min-width: auto; }
   .gallery-grid { grid-template-columns: 1fr; }
@@ -805,7 +814,7 @@ section {
 
 <!-- Navigation -->
 <nav class="site-nav" id="siteNav">
-  <a href="#" class="nav-logo">BGD 2027</a>
+  
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#themes">Themes</a></li>
@@ -860,7 +869,7 @@ section {
     </div>
     <div class="about-stats reveal">
       <div>
-        <div class="stat-number">400-500</div>
+        <div class="stat-number">400+</div>
         <div class="stat-label">Delegates from 10+ countries</div>
       </div>
       <div>
@@ -869,8 +878,13 @@ section {
       </div>
       <div>
         <div class="stat-number">5</div>
-        <div class="stat-label">Thematic tracks</div>
+        <div class="stat-label">Key Themes</div>
       </div>
+      <div>
+        <div class="stat-number">3</div>
+        <div class="stat-label">Partner Tracks</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -880,7 +894,7 @@ section {
   <div class="container">
     <div class="reveal">
       <p class="section-label">Conference Themes</p>
-      <h2 class="section-heading light">Five Tracks, One Vision</h2>
+      <h2 class="section-heading light">Five Key Themes</h2>
     </div>
     <div class="themes-grid">
       <div class="theme-card reveal">
@@ -908,6 +922,28 @@ section {
         <h3>Geoeconomics</h3>
         <p>Trade wars, sanctions, supply chain resilience &mdash; the economic instruments of power and their strategic implications.</p>
       </div>
+
+    <div class="reveal" style="margin-top:3rem;">
+      <h3 class="section-heading light" style="font-size:1.6rem;margin-bottom:0.5rem;">Conference Partner Tracks</h3>
+      <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:2rem;max-width:580px;">Dedicated tracks for structured engagement, curated by partner organisations.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-bottom:2rem;">
+      <div class="theme-card reveal" style="flex:1;min-width:220px;max-width:300px;">
+        <div class="theme-card-number">T1</div>
+        <h3>Diplomacy Track</h3>
+        <p>A dedicated session curated by Consulate General partners — bringing diplomatic perspectives to India&#x2019;s strategic conversations.</p>
+      </div>
+      <div class="theme-card reveal" style="flex:1;min-width:220px;max-width:300px;">
+        <div class="theme-card-number">T2</div>
+        <h3>Business Track</h3>
+        <p>Corporate partners set the agenda — connecting industry leaders with the policy, defence and geopolitical themes shaping business strategy.</p>
+      </div>
+      <div class="theme-card reveal" style="flex:1;min-width:220px;max-width:300px;">
+        <div class="theme-card-number">T3</div>
+        <h3>University Track</h3>
+        <p>University partners bring faculty, researchers and students — anchoring the next generation of policy thinkers in the Bangalore Global Dialogue.</p>
+      </div>
+    </div>
     </div>
   </div>
 </section>
@@ -1023,7 +1059,7 @@ section {
           <li>Logo on conference backdrop, collaterals, website &amp; social media promotions</li>
           <li>Emcee brand call-outs</li>
         </ul>
-        <div class="partnership-price"><span>INR 25,00,000</span></div>
+        <div class="partnership-price"><span>INR 20,00,000</span></div>
       </div>
 
       <div class="partnership-card gold reveal">
@@ -1046,7 +1082,7 @@ section {
           <li>Logo on conference backdrop &amp; collaterals</li>
           <li>Emcee brand call-outs</li>
         </ul>
-        <div class="partnership-price"><span>INR 10,00,000</span></div>
+        <div class="partnership-price"><span>INR 12,00,000</span></div>
       </div>
 
     </div>
@@ -1066,7 +1102,7 @@ section {
           <li>Networking events &amp; meals</li>
           <li>Conference materials &amp; merch kit</li>
         </ul>
-        <div class="partnership-price"><span>INR 20,000 per attendee</span></div>
+        <div class="partnership-price"><span>INR 10,000 per attendee</span></div>
       </div>
     </div>
 
@@ -1103,7 +1139,7 @@ section {
   <div class="container reveal">
     <h2 class="section-heading">Join the Conversation</h2>
     <p>Be part of India's most ambitious dialogue on technology, geopolitics, and defence.</p>
-    <a href="/cdn-cgi/l/email-protection#345653507440555f475c55475c5d58551a5b46531a5d5a" class="hero-cta">Get in Touch</a>
+    <a href="mailto:carl@takshashila.org.in" class="hero-cta">Get in Touch</a>
   </div>
 </section>
 
