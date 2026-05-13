@@ -190,7 +190,7 @@ body {
   z-index: 100;
   padding: 1.2rem 2.5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   transition: all 0.4s ease;
 }
@@ -775,6 +775,41 @@ section {
 }
 
 /* ===================== RESPONSIVE ===================== */
+
+/* Mobile nav overlay */
+.nav-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(25,8,15,0.97);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.nav-mobile-menu.open { display: flex; }
+.nav-mobile-menu a {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 1.2rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.nav-mobile-menu a:hover { opacity: 0.7; }
+.nav-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .nav-hamburger { display: block; }
@@ -828,6 +863,18 @@ section {
     <span></span><span></span><span></span>
   </button>
 </nav>
+
+<!-- Mobile nav overlay -->
+<div class="nav-mobile-menu" id="mobileMenu">
+  <button class="nav-close" id="navClose" aria-label="Close menu">&times;</button>
+  <a href="#about">About</a>
+  <a href="#themes">Themes</a>
+  <a href="#formats">Programme</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#supporters">Supporters</a>
+  <a href="#partnerships">Partner</a>
+  <a href="#organiser">Organiser</a>
+</div>
 
 <!-- Hero -->
 <section class="hero" id="hero">
@@ -1181,14 +1228,24 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 // Mobile nav toggle
-const toggle = document.getElementById('navToggle');
-const links = document.querySelector('.nav-links');
-toggle.addEventListener('click', () => {
-  const isOpen = links.style.display === 'flex';
-  links.style.display = isOpen ? 'none' : 'flex';
-  links.style.flexDirection = 'column';
-  links.style.position = 'absolute';
-  links.style.top = '100%';
-  links.style.left = '0';
-  links.style.right = '0';
-  links.style.background = 'rgba(74,18,40,0.9
+const hamburger = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const navClose = document.getElementById('navClose');
+
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+
+navClose.addEventListener('click', () => {
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+});
+
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+9
