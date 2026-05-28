@@ -636,6 +636,17 @@ section {
   margin: 0;
 }
 
+.partnership-card.principal .partnership-card-header { background: #f1a222; }
+.partnership-card.principal .partnership-card-header h3 { color: #040404; }
+.principal-deliverables {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 2rem;
+  padding: 1.5rem 2rem;
+}
+@media (max-width: 600px) {
+  .principal-deliverables { grid-template-columns: 1fr; }
+}
 .partnership-card.platinum .partnership-card-header { background: var(--maroon); }
 .partnership-card.gold .partnership-card-header { background: var(--gold); }
 .partnership-card.gold .partnership-card-header h3 { color: var(--charcoal); }
@@ -1086,6 +1097,27 @@ section {
     <div class="reveal">
       <p class="section-label">Partner With Us</p>
       <h2 class="section-heading">Strategic Partnership Opportunities</h2>
+    </div>
+
+    <!-- Principal Access Tier -->
+    <div class="reveal" style="margin-top:2.5rem;">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#f1a222;margin-bottom:0.5rem;">Principal Access Tier</h3>
+      <p style="font-size:0.95rem;color:var(--text-secondary);margin-bottom:0.5rem;max-width:700px;">Co-presenting status, category exclusivity, a signature owned moment, and full post-event branding opportunities.</p>
+    </div>
+    <div style="margin-top:0;margin-bottom:2.5rem;">
+      <div class="partnership-card principal reveal" style="width:100%;box-sizing:border-box;">
+        <div class="partnership-card-header"><h3>Principal Partner</h3></div>
+        <ul class="partnership-deliverables principal-deliverables">
+          <li><strong>Co-Presenting Partner:</strong> &ldquo;In association with&rdquo; on all event branding, logo wall, lanyards &amp; main-stage header</li>
+          <li><strong>Main Event Address:</strong> Senior executive addresses the audience at the open or close of the main event</li>
+          <li><strong>Delegate Passes:</strong> 30 passes + VIP all-access for leadership + dedicated networking lounge area and pop-up stand with most strategic vantage close to main event hall</li>
+          <li><strong>Closed-Door Access:</strong> Private hosted VIP dinner/lunch with a curated guest list of speakers &amp; senior delegates</li>
+          <li><strong>Pre-Event Promotions:</strong> Logo on conference backdrop, collaterals, website &amp; social media promotions with special mention of &ldquo;in association with&rdquo; branding</li>
+          <li><strong>Post-Event Branding:</strong> Logo on all session recordings, highlight reel &amp; post-event video; named in official press release with an executive quote</li>
+          <li><strong>Branding Opportunities:</strong> Branded merch inside every delegate kit; emcee brand call-outs; access to recreational/sundowner activities; conference materials &amp; merch kit for all delegates</li>
+        </ul>
+        <div class="partnership-price"><span>INR 1 Crore</span></div>
+      </div>
     </div>
 
     <!-- Premium Access Tier -->
